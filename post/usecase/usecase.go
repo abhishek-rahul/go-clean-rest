@@ -72,7 +72,7 @@ func (u *usecase) FindByID(ctx context.Context, input post.InputPostID) (resp mo
 	respCache, err := u.redisRepo.GetPostByID(ctx, strconv.Itoa(int(input.ID)))
 	if err != nil {
 		log.Println("[Post][FindByID][Usecase] Problem getting data from Cache, err: ", err.Error())
-		return resp, errors.WithMessage(err, "postUC.FindByID.CacheProblem")
+		//return resp, errors.WithMessage(err, "postUC.FindByID.CacheProblem")
 	}
 
 	if respCache != (models.Post{}) {
